@@ -46,8 +46,9 @@
                     <br>
                     {{#if isCompany}}
                       <a href='{{pathForJobDetails job._id}}'>Detalhes</a>
-                    {{/if}}  
+                    {{/if}}
                     <br>
+                    {{daysAgo job.createdAt}}
                     <br>
                   </div>
                   <div class="col-md-9 col-xs-12 col-sm-8">
