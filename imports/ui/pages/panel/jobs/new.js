@@ -32,7 +32,7 @@ Template.newJob.events({
       categoria: targetValue(target["categoria"]),
       tipo_vaga: targetValue(target["tipo_vaga"]),
       nome: targetValue(target["nome"]),
-      expiration: formatDate($('#expiration').val()),
+      expiration: dateToMilliseconds($('#expiration').val()),
       descricao: targetValue(target["descricao"]),
       especial: $('#especial').is(':checked'),
       tags: $('#tags').val()
@@ -91,12 +91,6 @@ function loadCalendar() {
   $('#expiration').focus(function() {
     $('#expiration').blur();
   });
-}
-
-function formatDate(value) {
-  var from = value.split("-");
-  var date = new Date(from[2], from[1] - 1, from[0], 23, 59, 59);
-  return date.getTime();
 }
 
 Template.newJob.helpers({

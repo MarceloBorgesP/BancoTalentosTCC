@@ -30,6 +30,15 @@ Template.registerHelper(
 );
 
 Template.registerHelper(
+  'dateToMilliseconds', (value) => {
+    var from = value.split("-");
+    var date = new Date(from[2], from[1] - 1, from[0], 23, 59, 59);
+    return date.getTime();
+  }
+);
+
+
+Template.registerHelper(
   'isCompany', (user) => {
     if (user) return Roles.userIsInRole(user._id, 'company', 'user-type');
     else return Roles.userIsInRole(Meteor.userId(), 'company', 'user-type');
